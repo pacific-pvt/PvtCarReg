@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>太平洋汽門工業</title>
+</head>
+
+<body>
+    <!--標題-->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md">
+                <h1>公務車系統</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn-group">
+                <a href="./使用狀況.html" class="btn btn-primary">使用狀況</a>
+                <a href="./借車登記.html" class="btn btn-primary active" aria-current="page">借車登記</a>
+                <a href="./歸還車輛.html" class="btn btn-primary">歸還車輛</a>
+              </div>
+        </div>
+        <p></p>
+    </div>
+
+    <!--表單-->
+    <div class="container ">
+        <form id="myform" class="row g-3 needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="employee-name" class="form-label">使用者姓名</label>
+                <input type="text" id="employee-name" autocomplete="off" class="form-control" pattern="[\u4e00-\u9fa5]+"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="employee-id" class="form-label">使用者工號</label>
+                <input type="text" id="employee-id" autocomplete="off" class="form-control" minlength="6" pattern="\d*"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="companion-name" class="form-label">同行者姓名</label>
+                <input type="text" id="companion-name" autocomplete="off" class="form-control" pattern="[\u4e00-\u9fa5]+" required>
+            </div>
+            <div class="mb-3">
+                <label for="departure-datetime" class="form-label">預計出發時間</label>
+                <input type="datetime-local" id="departure-datetime" class="form-control datepicker" required>
+            </div>
+            <div class="mb-3">
+                <label for="return-datetime" class="form-label">預計返回時間</label>
+                <input type="datetime-local" id="return-datetime" class="form-control datepicker" required>
+            </div>
+            <div class="mb-3">
+                <label for="destination" class="form-label">目的地</label>
+                <input type="text" id="destination" autocomplete="off" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="vehicle" class="form-label">使用車輛</label>
+                <select id="vehicle" class="form-select" required></select>
+            </div>
+            <div class="mb-3 row" id="vehicleInfo">
+                <div class="col-sm">
+                    <img id="vehicleImage" src="" alt="" style="max-width: 300px;">
+                </div>
+                <div class="col-sm">
+                    <p id="vehicleDescription"></p>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <button class="btn btn-primary" id="form-submit">提交</button>
+        </div><br>
+    </div>
+
+    <!-- 視窗 -->
+    <div class="modal" tabindex="-1" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">傳送結果</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-ok"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="spinner-border" id="spinner" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p id="message" style="display: none;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<script type="module" src="./javascript/BorrowReg.js"></script>
+<script type="module" src="./javascript/SelectList.js"></script>
+
+</html>
