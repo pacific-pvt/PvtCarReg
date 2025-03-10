@@ -27,7 +27,7 @@ async function fetchWrite() {
         'code': '1'
     }
 
-    new bootstrap.Modal(document.getElementById('myModal')).show();
+    new bootstrap.Modal(document.getElementById('myModal'),{ backdrop: 'static', keyboard: false }).show();
 
     const BorrowData = await fetchData(formData);
     document.getElementById('spinner').style.display = 'none'; // 隱藏 loading spinner
