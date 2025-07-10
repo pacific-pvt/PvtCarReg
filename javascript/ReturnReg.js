@@ -110,7 +110,6 @@ async function ReturnReg() {
     };
 
     console.log(formdata);
-    console.log("送出的 odo 值:", formdata.odo);
     
     document.getElementById('spinner1').style.display = 'block';
     document.getElementById('backform').style.display = 'none';
