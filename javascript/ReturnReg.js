@@ -59,17 +59,8 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backuser.value = cells[0] ? cells[0].innerText : '!'; // 第1個儲存格
         backcar.value = cells[1] ? cells[1].innerText : '!'; // 第2個儲存格
         backdest.value = cells[2] ? cells[2].innerText : '!'; // 第3個儲存格
-       if (cells[3]) {
-            backstart.value = cells[3].innerText.replace(' ', 'T');
-        } else {
-            backstart.value = '!';
-        }
-
-        if (cells[4]) {
-            backreturn.value = cells[4].innerText.replace(' ', 'T');
-        } else {
-            backreturn.value = '!';
-        }
+        backstart.value = cells[3] ? cells[3].innerText : '!'; // 第3個儲存格
+        backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
     }
 });
 
