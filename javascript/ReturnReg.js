@@ -5,6 +5,7 @@ getsheetdata();
 
 async function getsheetdata() {
     const SheetData = await fetchData({ 'code': '3' });
+    console.log(SheetData);
 
     document.getElementById('spinner').style.display = 'none'; // 隱藏 loading spinner
 
