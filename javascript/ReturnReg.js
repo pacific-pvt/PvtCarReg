@@ -109,6 +109,8 @@ async function ReturnReg() {
         'code': '4'
     };
 
+     console.log(formdata);
+    
     document.getElementById('spinner1').style.display = 'block';
     document.getElementById('backform').style.display = 'none';
     document.getElementById('btn-Ok').disabled = true;
