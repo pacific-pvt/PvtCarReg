@@ -70,6 +70,8 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         } else {
             backreturn.value = '!';
         }
+
+        actualreturntime.value = new Date().toISOString().slice(0,16);
     }
 });
 
