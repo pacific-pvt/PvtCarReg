@@ -44,7 +44,7 @@ const backcar = document.getElementById('back-car');
 const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
-const actualreturntime = document.getElementById('actual-return-time');
+const backODO = document.getElementById('back-ODO');
 const backgas = document.getElementById('back-gas');
 
 document.getElementById('Return-Table').addEventListener('click', function (event) {
@@ -59,18 +59,8 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backuser.value = cells[0] ? cells[0].innerText : '!'; // 第1個儲存格
         backcar.value = cells[1] ? cells[1].innerText : '!'; // 第2個儲存格
         backdest.value = cells[2] ? cells[2].innerText : '!'; // 第3個儲存格
-       if (cells[3]) {
-            backstart.value = cells[3].innerText.replace(' ', 'T');
-        } else {
-            backstart.value = '!';
-        }
-
-        if (cells[4]) {
-            backreturn.value = cells[4].innerText.replace(' ', 'T');
-        } else {
-            backreturn.value = '!';
-        }
-
+        backstart.value = cells[3] ? cells[3].innerText : '!'; // 第3個儲存格
+        backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
     }
 });
 
@@ -101,17 +91,15 @@ async function ReturnReg() {
         'car': backcar.value, // 使用車輛
         'regdate': new Intl.DateTimeFormat('en-CA').format(new Date()), // 登記日期 (格式: yyyy-MM-dd)
         'regtime': new Intl.DateTimeFormat('en-CA', { hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()), // 登記時間 (格式: HH:mm)
-        'startdate': backstart.value.split("T")[0], // 出發日期 (從 datetime-local 取得)
-        'starttime': backstart.value.split("T")[1], // 出發時間 (從 datetime-local 取得)
-        'enddate': backreturn.value.split("T")[0], // 返回日期
-        'endtime': backreturn.value.split("T")[1], // 返回時間
-        'returntime': actualreturntime.value,
+        'startdate': backstart.value.split(" ")[0], // 出發日期 (從 datetime-local 取得)
+        'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
+        'enddate': backreturn.value.split(" ")[0], // 返回日期
+        'endtime': backreturn.value.split(" ")[1], // 返回時間
+        'odo': backODO.value,
         'gas': backgas.value,
         'code': '4'
     };
 
-    console.log(formdata);
-    
     document.getElementById('spinner1').style.display = 'block';
     document.getElementById('backform').style.display = 'none';
     document.getElementById('btn-Ok').disabled = true;
