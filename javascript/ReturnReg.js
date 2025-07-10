@@ -104,7 +104,7 @@ async function ReturnReg() {
         'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
-        'odo': actualreturntime.value,
+        'returnTime': actualreturntime.value,
         'gas': backgas.value,
         'code': '4'
     };
