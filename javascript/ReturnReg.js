@@ -100,10 +100,10 @@ async function ReturnReg() {
         'car': backcar.value, // 使用車輛
         'regdate': new Intl.DateTimeFormat('en-CA').format(new Date()), // 登記日期 (格式: yyyy-MM-dd)
         'regtime': new Intl.DateTimeFormat('en-CA', { hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()), // 登記時間 (格式: HH:mm)
-        'startdate': backstart.value.split(" ")[0], // 出發日期 (從 datetime-local 取得)
-        'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
-        'enddate': backreturn.value.split(" ")[0], // 返回日期
-        'endtime': backreturn.value.split(" ")[1], // 返回時間
+        'startdate': backstart.value.split("T")[0], // 出發日期 (從 datetime-local 取得)
+        'starttime': backstart.value.split("T")[1], // 出發時間 (從 datetime-local 取得)
+        'enddate': backreturn.value.split("T")[0], // 返回日期
+        'endtime': backreturn.value.split("T")[1], // 返回時間
         'odo': actualreturntime.value,
         'gas': backgas.value,
         'code': '4'
