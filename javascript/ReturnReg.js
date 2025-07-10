@@ -104,12 +104,13 @@ async function ReturnReg() {
         'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
-        'returntime': actualreturntime.value,
+        'returntime': actualreturntime.value.replace('T', '-'),
         'gas': backgas.value,
         'code': '4'
     };
 
-     console.log(formdata);
+    console.log(formdata);
+    console.log("送出的 odo 值:", formdata.odo);
     
     document.getElementById('spinner1').style.display = 'block';
     document.getElementById('backform').style.display = 'none';
