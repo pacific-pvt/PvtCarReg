@@ -59,8 +59,20 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backuser.value = cells[0] ? cells[0].innerText : '!'; // 第1個儲存格
         backcar.value = cells[1] ? cells[1].innerText : '!'; // 第2個儲存格
         backdest.value = cells[2] ? cells[2].innerText : '!'; // 第3個儲存格
-        backstart.value = cells[3] ? cells[3].innerText : '!'; // 第3個儲存格
-        backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
+        if (cells[3]) {
+    backstart.value = cells[3].innerText.replace(' ', 'T'); // 把空白換成 T，方便後面拆分
+} else {
+    backstart.value = '!';
+}
+
+if (cells[4]) {
+    backreturn.value = cells[4].innerText.replace(' ', 'T'); // 同上
+} else {
+    backreturn.value = '!';
+}
+
+actualreturntime.value = new Date().toISOString().slice(0,16); // 預設實際返回時間是現在時間 (datetime-local格式)
+
     }
 });
 
