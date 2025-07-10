@@ -44,8 +44,9 @@ const backcar = document.getElementById('back-car');
 const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
-const backODO = document.getElementById('back-ODO');
 const backgas = document.getElementById('back-gas');
+const actualreturntime = document.getElementById('actual-return-time');
+
 
 document.getElementById('Return-Table').addEventListener('click', function (event) {
     if (event.target && event.target.nodeName === 'TD') {
@@ -61,6 +62,15 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backdest.value = cells[2] ? cells[2].innerText : '!'; // 第3個儲存格
         backstart.value = cells[3] ? cells[3].innerText : '!'; // 第3個儲存格
         backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
+
+        let now = new Date();
+        let yyyy = now.getFullYear();
+        let mm = String(now.getMonth() + 1).padStart(2, '0');
+        let dd = String(now.getDate()).padStart(2, '0');
+        let hh = String(now.getHours()).padStart(2, '0');
+        let min = String(now.getMinutes()).padStart(2, '0');
+        actualreturntime.value = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+        
     }
 });
 
@@ -95,7 +105,7 @@ async function ReturnReg() {
         'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
-        'odo': backODO.value,
+        'returntime': actualreturntime.value,
         'gas': backgas.value,
         'code': '4'
     };
