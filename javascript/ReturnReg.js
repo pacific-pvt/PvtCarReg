@@ -111,6 +111,8 @@ async function ReturnReg() {
         'code': '4'
     };
 
+    console.log('送出的資料', formdata);
+
     document.getElementById('spinner1').style.display = 'block';
     document.getElementById('backform').style.display = 'none';
     document.getElementById('btn-Ok').disabled = true;
