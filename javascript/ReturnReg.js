@@ -46,7 +46,7 @@ const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
-const actualreturntime = document.getElementById('actual-return-time');
+//const actualreturntime = document.getElementById('actual-return-time');
 
 
 document.getElementById('Return-Table').addEventListener('click', function (event) {
@@ -66,6 +66,7 @@ document.getElementById('Return-Table').addEventListener('click', function (even
 
         console.log('actualreturntime element:', actualreturntime);
         console.log('actualreturntime.value before setting:', actualreturntime?.value);
+        console.log('actualreturntime.value after setting:', actualreturntime.value);
 
         let now = new Date();
         let yyyy = now.getFullYear();
@@ -74,7 +75,7 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         let hh = String(now.getHours()).padStart(2, '0');
         let min = String(now.getMinutes()).padStart(2, '0');
         actualreturntime.value = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
-        console.log('actualreturntime.value after setting:', actualreturntime.value);
+        
         
     }
 });
@@ -98,15 +99,7 @@ Array.prototype.slice.call(forms) // 將表單陣列化
 
 //--------------確認返回----------------
 async function ReturnReg() {
-
-    let actualReturn = actualreturntime.value || '';
-    let returnDate = '';
-    let returnTime = '';
-
-    if (actualReturn.includes('T')) {
-        [returnDate, returnTime] = actualReturn.split('T');
-    }
-
+    
     var formdata = {
         'name': backuser.value.split(" ")[0], // 使用者姓名
         'id': backuser.value.split(" ")[1], // 使用者工號
@@ -119,8 +112,6 @@ async function ReturnReg() {
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
         //'returntime': actualreturntime.value,
-        'returndate': returnDate,
-        'returntime': actualReturn,
         'gas': backgas.value,
         'code': '4'
     };
