@@ -64,9 +64,6 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backstart.value = cells[3] ? cells[3].innerText : '!'; // 第3個儲存格
         backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
 
-        console.log('actualreturntime element:', actualreturntime);
-        console.log('actualreturntime.value before setting:', actualreturntime?.value);
-        console.log('actualreturntime.value after setting:', actualreturntime.value);
 
         let now = new Date();
         let yyyy = now.getFullYear();
