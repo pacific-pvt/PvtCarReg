@@ -46,7 +46,7 @@ const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
-//const actualreturntime = document.getElementById('actual-return-time');
+
 
 
 document.getElementById('Return-Table').addEventListener('click', function (event) {
@@ -73,9 +73,7 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         let mm = String(now.getMonth() + 1).padStart(2, '0');
         let dd = String(now.getDate()).padStart(2, '0');
         let hh = String(now.getHours()).padStart(2, '0');
-        let min = String(now.getMinutes()).padStart(2, '0');
-        actualreturntime.value = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
-        
+        let min = String(now.getMinutes()).padStart(2, '0');        
         
     }
 });
@@ -111,7 +109,6 @@ async function ReturnReg() {
         'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
-        //'returntime': actualreturntime.value,
         'gas': backgas.value,
         'code': '4'
     };
