@@ -99,6 +99,14 @@ Array.prototype.slice.call(forms) // 將表單陣列化
 //--------------確認返回----------------
 async function ReturnReg() {
 
+    let actualReturn = actualreturntime.value || '';
+    let returnDate = '';
+    let returnTime = '';
+
+    if (actualReturn.includes('T')) {
+        [returnDate, returnTime] = actualReturn.split('T');
+    }
+
     var formdata = {
         'name': backuser.value.split(" ")[0], // 使用者姓名
         'id': backuser.value.split(" ")[1], // 使用者工號
@@ -110,7 +118,9 @@ async function ReturnReg() {
         'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
-        'returntime': actualreturntime.value,
+        //'returntime': actualreturntime.value,
+        'returndate': returnDate,
+        'returntime': actualReturn,
         'gas': backgas.value,
         'code': '4'
     };
