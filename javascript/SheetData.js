@@ -7,7 +7,7 @@ export async function fetchData(formData) {
     method: 'POST', // 設定 HTTP 方法為 POST
     body: JSON.stringify(formData), // 將資料轉換為 JSON 格式並放入 body
     headers: {
-       'Content-Type': 'application/json;charset=utf-8' // 設定 Content-Type
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' // 設定 Content-Type
     }
   });
 
