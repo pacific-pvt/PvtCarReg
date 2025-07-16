@@ -47,6 +47,20 @@ const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
 
+const backreturnTime = document.getElementById('actual-return-time'); // 取得欄位
+const now = new Date(); // 現在時間
+
+// 修正時區，避免 UTC 偏差
+const offset = now.getTimezoneOffset();
+const localTime = new Date(now.getTime() - offset * 60 * 1000);
+
+// 格式化成 datetime-local 要的格式：yyyy-MM-ddTHH:mm
+const formatted = localTime.toISOString().slice(0, 16);
+
+// 設定欄位值
+backreturnTime.value = formatted;
+
+
 
 
 document.getElementById('Return-Table').addEventListener('click', function (event) {
