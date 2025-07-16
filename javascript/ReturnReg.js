@@ -46,20 +46,7 @@ const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
-
-const backreturnTime = document.getElementById('actual-return-time'); // 取得欄位
-const now = new Date(); // 現在時間
-
-// 修正時區，避免 UTC 偏差
-const offset = now.getTimezoneOffset();
-const localTime = new Date(now.getTime() - offset * 60 * 1000);
-
-// 格式化成 datetime-local 要的格式：yyyy-MM-ddTHH:mm
-const formatted = localTime.toISOString().slice(0, 16);
-
-// 設定欄位值
-backreturnTime.value = formatted;
-
+const backreturnTime = document.getElementById('actual-return-time');
 
 
 
@@ -120,7 +107,10 @@ async function ReturnReg() {
         'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
-        'gas': backgas.value,
+        'gas': backgas.value,//有無加油    
+        'actualReturnDate': backreturnTime.value.split("T")[0],//實際返回日期
+        'actualReturnTime': backreturnTime.value.split("T")[1],//實際返回時間
+        
         'code': '4'
     };
 
