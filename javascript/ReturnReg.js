@@ -108,7 +108,7 @@ async function ReturnReg() {
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
         'gas': backgas.value,//有無加油    
-        'actualReturnDate': backreturnTime.value.split("T")[0],//實際返回日期
+        'actualReturnDate': backreturnDate.value.split("T")[0],//實際返回日期
         'actualReturnTime': backreturnTime.value.split("T")[1],//實際返回時間
         
         'code': '4'
