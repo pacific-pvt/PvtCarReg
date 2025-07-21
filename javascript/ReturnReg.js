@@ -66,12 +66,7 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
 
 
-        let now = new Date();
-        let yyyy = now.getFullYear();
-        let mm = String(now.getMonth() + 1).padStart(2, '0');
-        let dd = String(now.getDate()).padStart(2, '0');
-        let hh = String(now.getHours()).padStart(2, '0');
-        let min = String(now.getMinutes()).padStart(2, '0');        
+        backreturnTime.value = new Date().toISOString().slice(0, 16); // datetime-local 格式    
         
     }
 });
@@ -108,7 +103,7 @@ async function ReturnReg() {
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
         'gas': backgas.value,//有無加油    
-        'actualReturnDate': backreturnDate.value.split("T")[0],//實際返回日期
+        'actualReturnDate': backreturnTime.value.split("T")[0],//實際返回日期
         'actualReturnTime': backreturnTime.value.split("T")[1],//實際返回時間
         
         'code': '4'
