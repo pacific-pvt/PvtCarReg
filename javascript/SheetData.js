@@ -1,4 +1,4 @@
-export const url = 'https://script.google.com/macros/s/AKfycbyd985noIUSW3CsjL2YjO5kABB-CmNgi7M2yniG2r5unSv4MaLV1qLKz6NNZsP6CW4wkw';
+export const url = 'https://script.google.com/macros/s/AKfycbzs-fs-1ngOvhQu2bsOeNuaxuT7kUxKm8PSFlCSg_gcb5BuN_Ak1iNOO4maQ3UTRbd1kw';
 
 
 export async function fetchData(formData) {
