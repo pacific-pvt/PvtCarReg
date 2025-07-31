@@ -50,10 +50,17 @@ const backreturnTime = document.getElementById('actual-return-time');
 
 function getLocalDateTime() {
     const now = new Date();
-    const offset = now.getTimezoneOffset(); // 取得時區偏移 (分鐘)
-    const localTime = new Date(now.getTime() - offset * 60 * 1000); // 補回偏移時間
-    return localTime.toISOString().slice(0, 16); // 符合 datetime-local 格式
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // 月份是 0-11
+    const day = String(now.getDate()).padStart(2, '0');
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
+
 
 
 document.getElementById('Return-Table').addEventListener('click', function (event) {
