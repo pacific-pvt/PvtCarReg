@@ -48,6 +48,12 @@ const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
 const backreturnTime = document.getElementById('actual-return-time');
 
+function getLocalDateTime() {
+    const now = new Date();
+    const offset = now.getTimezoneOffset(); // 取得時區偏移 (分鐘)
+    const localTime = new Date(now.getTime() - offset * 60 * 1000); // 補回偏移時間
+    return localTime.toISOString().slice(0, 16); // 符合 datetime-local 格式
+}
 
 
 document.getElementById('Return-Table').addEventListener('click', function (event) {
@@ -66,7 +72,8 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
 
 
-        backreturnTime.value = new Date().toISOString().slice(0, 16); // datetime-local 格式    
+        backreturnTime.value = getLocalDateTime();
+    
         
     }
 });
