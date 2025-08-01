@@ -5,10 +5,13 @@ export async function fetchData(formData) {
   const response = await fetch(url, {
     redirect: 'follow',
     method: 'POST', // 設定 HTTP 方法為 POST
-    headers: {
+
+    myHeaders.append("Content-Type", "text/plain; charset=utf-8");
+    
+    /*headers: {
         //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' // 設定 Content-Type
           'Content-Type': 'text/plain'
-    },
+    },*/
      body: JSON.stringify(formData)// 將資料轉換為 JSON 格式並放入 body
     //body: `data=${encodeURIComponent(JSON.stringify(formData))}`
     
