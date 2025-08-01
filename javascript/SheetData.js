@@ -10,7 +10,8 @@ export async function fetchData(formData) {
           'Content-Type': 'text/plain'
     },
      body: JSON.stringify(formData)// 將資料轉換為 JSON 格式並放入 body
-    //body: `data=${encodeURIComponent(JSON.stringify(formData))}`
+    //body: `data=${encodeURIComponent(JSON.stringify(formData))}`TEST
+    
   });
 
   const data = await response.json(); // 解析 JSON
