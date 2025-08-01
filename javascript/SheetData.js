@@ -5,11 +5,11 @@ export async function fetchData(formData) {
   const response = await fetch(url, {
     redirect: 'follow',
     method: 'POST', // 設定 HTTP 方法為 POST
-    //body: JSON.stringify(formData), // 將資料轉換為 JSON 格式並放入 body
+    body: JSON.stringify(formData), // 將資料轉換為 JSON 格式並放入 body
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' // 設定 Content-Type
-    },
-    body: new URLSearchParams(formData) 
+    }
+    
   });
 
   const data = await response.json(); // 解析 JSON
