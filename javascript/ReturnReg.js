@@ -46,7 +46,7 @@ const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
-const backreturnTime = document.getElementById('actual-return-time');
+//const backreturnTime = document.getElementById('actual-return-time');
 
 function getLocalDateTime() {
     const now = new Date();
@@ -79,7 +79,7 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
 
 
-        backreturnTime.value = getLocalDateTime();
+        //backreturnTime.value = getLocalDateTime();
     
         
     }
@@ -117,8 +117,8 @@ async function ReturnReg() {
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
         'gas': backgas.value,//有無加油    
-        'actualReturnDate': backreturnTime.value.split("T")[0],//實際返回日期
-        'actualReturnTime': backreturnTime.value.split("T")[1],//實際返回時間
+        /*'actualReturnDate': backreturnTime.value.split("T")[0],//實際返回日期
+        'actualReturnTime': backreturnTime.value.split("T")[1],//實際返回時間*/
         
         'code': '4'
     };
