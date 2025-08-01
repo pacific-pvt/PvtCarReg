@@ -1,16 +1,10 @@
 export const url = 'https://script.google.com/macros/s/AKfycbxt78kqhSqKGmZJSGdU3YcDkk96fX-VnMGB1hG-MafB3NcBPrEkfb8bLZy8_32C9VMSQw/exec';
 
-
-export async function fetchData(formData) {
-  const response = await fetch(url, {
-    redirect: 'follow',
-    method: 'POST', // 設定 HTTP 方法為 POST
-    body: JSON.stringify(formData), // 將資料轉換為 JSON 格式並放入 body
-    headers: {
-      'Content-Type': 'text/plain;charset=utf-8' // 設定 Content-Type
-    }
+export async function fetchData(params) {
+  const query = new URLSearchParams(params).toString();
+  const response = await fetch(`${url}?${query}`, {
+    method: 'GET',
   });
-
-  const data = await response.json(); // 解析 JSON
-  return data; // 直接返回資料，不做任何處理
+  const data = await response.json();
+  return data;
 }
