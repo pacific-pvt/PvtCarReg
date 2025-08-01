@@ -8,8 +8,8 @@ export async function fetchData(formData) {
     headers: {
         //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' // 設定 Content-Type
           'Content-Type': 'text/plain'
-    }
-     body: JSON.stringify(formData), // 將資料轉換為 JSON 格式並放入 body
+    },
+     body: JSON.stringify(formData)// 將資料轉換為 JSON 格式並放入 body
     //body: `data=${encodeURIComponent(JSON.stringify(formData))}`
   });
 
