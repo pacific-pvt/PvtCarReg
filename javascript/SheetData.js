@@ -3,11 +3,12 @@ export const url = 'https://script.google.com/macros/s/AKfycbxt78kqhSqKGmZJSGdU3
 
 export async function fetchData(formData) {
   const response = await fetch(url, {
-    //redirect: 'follow',
+    redirect: 'follow',
     method: 'POST', // 設定 HTTP 方法為 POST 
     headers: {
         //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' // 設定 Content-Type
-          'Content-Type': 'text/plain;charset=utf-8'
+        //'Content-Type': 'text/plain;charset=utf-8'
+      'Content-Type': 'application/json;charset=utf-8'
     },
      body: JSON.stringify(formData)// 將資料轉換為 JSON 格式並放入 body      
   });
