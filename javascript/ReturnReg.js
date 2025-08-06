@@ -46,7 +46,6 @@ const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
-//const backreturnTime = document.getElementById('actual-return-time');
 
 function getLocalDateTime() {
     const now = new Date();
@@ -76,11 +75,7 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backcar.value = cells[1] ? cells[1].innerText : '!'; // 第2個儲存格
         backdest.value = cells[2] ? cells[2].innerText : '!'; // 第3個儲存格
         backstart.value = cells[3] ? cells[3].innerText : '!'; // 第3個儲存格
-        backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格
-
-
-        //backreturnTime.value = getLocalDateTime();
-    
+        backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格    
         
     }
 });
@@ -117,8 +112,6 @@ async function ReturnReg() {
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
         'gas': backgas.value,//有無加油    
-        /*'actualReturnDate': backreturnTime.value.split("T")[0],//實際返回日期
-        'actualReturnTime': backreturnTime.value.split("T")[1],//實際返回時間*/
         
         'code': '4'
     };
@@ -145,3 +138,4 @@ document.getElementById("btn-Cancel").addEventListener('click', function (event)
     myModal.hide();
     document.location.reload();
 })
+
