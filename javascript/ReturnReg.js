@@ -46,6 +46,7 @@ const backdest = document.getElementById('back-dest');
 const backstart = document.getElementById('back-start');
 const backreturn = document.getElementById('back-return');
 const backgas = document.getElementById('back-gas');
+const actualbackreturnTime = document.getElementById('actual-return-time');
 
 function getLocalDateTime() {
     const now = new Date();
@@ -76,6 +77,7 @@ document.getElementById('Return-Table').addEventListener('click', function (even
         backdest.value = cells[2] ? cells[2].innerText : '!'; // 第3個儲存格
         backstart.value = cells[3] ? cells[3].innerText : '!'; // 第3個儲存格
         backreturn.value = cells[4] ? cells[4].innerText : '!'; // 第3個儲存格    
+        actualbackreturnTime.value = getLocalDateTime()
         
     }
 });
@@ -111,7 +113,9 @@ async function ReturnReg() {
         'starttime': backstart.value.split(" ")[1], // 出發時間 (從 datetime-local 取得)
         'enddate': backreturn.value.split(" ")[0], // 返回日期
         'endtime': backreturn.value.split(" ")[1], // 返回時間
-        'gas': backgas.value,//有無加油    
+        'gas': backgas.value,//有無加油
+        'actualReturnDate': backreturnTime.value.split("T")[0],//實際返回日期
+        'actualReturnTime': backreturnTime.value.split("T")[1],//實際返回時間
         
         'code': '4'
     };
@@ -138,4 +142,5 @@ document.getElementById("btn-Cancel").addEventListener('click', function (event)
     myModal.hide();
     document.location.reload();
 })
+
 
