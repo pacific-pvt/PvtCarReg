@@ -13,10 +13,7 @@ const vehicleDescription = document.getElementById("vehicleDescription");
 //取得sheet 車輛資料
 const cardata = await fetchData({ 'code': '2' });
 cardata.map(item => {
-
-    const proxyImageUrl = url.replace('/exec', '') + '?id=' + item[0];
-    
-    vehicles.push({ name: item[1], image: proxyImageUrl, mileage: item[2], enable: item[3] });
+    vehicles.push({ name: item[1], image: item[0], mileage: item[2], enable: item[3] });
 })
 
 carlist();
@@ -47,23 +44,16 @@ function carlist() {
 }
 
 // 根據選擇的車輛更新圖片和描述
-// 在 SelectList.js 中，fetchData 的呼叫邏輯不變，
-// 但我們要在 updateVehicleInfo 裡面做一點小調整：
-
-async function updateVehicleInfo(vehicleName) {
+function updateVehicleInfo(vehicleName) {
     const vehicle = vehicles.find(v => v.name === vehicleName);
     if (vehicle) {
-        vehicleImage.src = "載入中..."; 
-        
-        // 呼叫 GAS 取得圖片的「真實公開連結」
-        const res = await fetch(vehicle.image); 
-        const directImageUrl = await res.text(); 
-        
-        // 直接指定 src
-        vehicleImage.src = directImageUrl; 
+        vehicleImage.src = vehicle.image;
         vehicleImage.alt = vehicle.name;
         vehicleDescription.textContent = '里程：' + vehicle.mileage + ' km';
     } else {
+        // 清空圖片和描述
         vehicleImage.src = "";
+        vehicleImage.alt = "";
+        vehicleDescription.textContent = "";
     }
 }
