@@ -1,5 +1,4 @@
 import { fetchData } from './SheetData.js';
-import { url } from './SheetData.js';
 
 const vehicles = [];
 
