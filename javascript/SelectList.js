@@ -47,16 +47,24 @@ function carlist() {
 }
 
 // 根據選擇的車輛更新圖片和描述
-function updateVehicleInfo(vehicleName) {
+// 在 SelectList.js 中，fetchData 的呼叫邏輯不變，
+// 但我們要在 updateVehicleInfo 裡面做一點小調整：
+
+async function updateVehicleInfo(vehicleName) {
     const vehicle = vehicles.find(v => v.name === vehicleName);
     if (vehicle) {
-        vehicleImage.src = vehicle.image;
+        // 如果是剛載入，且 image 還是 ID 的話，我們要在這裡發送請求獲取 Base64
+        // 或者建議您：在初始化 vehicles 陣列時，先不要賦值圖片，
+        // 而是當車輛被選擇時，才去 fetch 該 ID 的圖片數據
+        
+        vehicleImage.src = "等待載入中..."; // 顯示載入狀態
+        const res = await fetch(vehicle.image); // 呼叫 GAS
+        const base64Image = await res.text(); // 取得那串 Base64 字串
+        
+        vehicleImage.src = base64Image; // 把圖片顯示出來
         vehicleImage.alt = vehicle.name;
         vehicleDescription.textContent = '里程：' + vehicle.mileage + ' km';
     } else {
-        // 清空圖片和描述
         vehicleImage.src = "";
-        vehicleImage.alt = "";
-        vehicleDescription.textContent = "";
     }
 }
