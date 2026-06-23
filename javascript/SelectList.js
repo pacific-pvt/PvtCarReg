@@ -1,4 +1,5 @@
 import { fetchData } from './SheetData.js';
+import { url } from './SheetData.js';
 
 const vehicles = [];
 
@@ -12,7 +13,10 @@ const vehicleDescription = document.getElementById("vehicleDescription");
 //取得sheet 車輛資料
 const cardata = await fetchData({ 'code': '2' });
 cardata.map(item => {
-    vehicles.push({ name: item[1], image: item[0], mileage: item[2], enable: item[3] });
+
+    const proxyImageUrl = url.replace('/exec', '') + '?id=' + item[0];
+    
+    vehicles.push({ name: item[1], image: proxyImageUrl,, mileage: item[2], enable: item[3] });
 })
 
 carlist();
