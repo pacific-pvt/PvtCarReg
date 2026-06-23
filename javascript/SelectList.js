@@ -16,7 +16,7 @@ cardata.map(item => {
 
     const proxyImageUrl = url.replace('/exec', '') + '?id=' + item[0];
     
-    vehicles.push({ name: item[1], image: proxyImageUrl,, mileage: item[2], enable: item[3] });
+    vehicles.push({ name: item[1], image: proxyImageUrl, mileage: item[2], enable: item[3] });
 })
 
 carlist();
